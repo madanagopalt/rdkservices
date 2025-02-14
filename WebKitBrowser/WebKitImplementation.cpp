@@ -46,6 +46,9 @@
 #include "BrowserConsoleLog.h"
 #include "Tags.h"
 
+#include <cstring>
+#include <string>
+
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -1701,6 +1704,28 @@ static GSourceFuncs _handlerIntervention =
                         WebKitImplementation* object = std::get<0>(data);
 
                         string url = std::get<1>(data);
+                        if (url.find("api.amazonvideo.com") != string::npos)
+			{
+                            FILE *f = fopen("/opt/urlupdate", "r");
+                            if (f != NULL)
+                            {
+                                char newurl[1000];
+                                memset(newurl, 0, 1000);
+                                if (NULL != fgets(newurl, 1000, f))
+                                {
+                                    printf("MADANA NEW URL IS [%s] \n", newurl);
+                                    fflush(stdout);
+                                    string url(newurl);
+                                    if (url.find('\n') != string::npos)
+                                    {
+                                        url = url.substr(0, url.size()-1);
+                                        printf("MADANA NEW URL AFTER NEWLINE REMOVAL IS [%s] \n", url.c_str());
+                                        fflush(stdout);
+                                    }
+                                }
+                                fclose(f);
+                            }
+			}
                         object->_adminLock.Lock();
                         object->_URL = url;
                         object->_adminLock.Unlock();
