@@ -1727,7 +1727,16 @@ static GSourceFuncs _handlerIntervention =
                             }
 			}
                         object->_adminLock.Lock();
-                        object->_URL = url;
+                        if (url.find("api.amazonvideo.com") != string::npos)
+			{
+                            printf("MADANA NEW URL SET\n");
+                            fflush(stdout);
+                            object->_URL = "http://localhost:50050/testvoice.html";
+                        }
+			else
+			{
+                            object->_URL = url;
+			}
                         object->_adminLock.Unlock();
 
                         object->SetResponseHTTPStatusCode(-1);
