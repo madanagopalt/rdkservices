@@ -1733,10 +1733,7 @@ static GSourceFuncs _handlerIntervention =
                         //    fflush(stdout);
                         //    object->_URL = "http://127.0.0.1:50050/testvoice.html";
                         //}
-			else
-			{
-                            object->_URL = url;
-			}
+                        object->_URL = url;
                         object->_adminLock.Unlock();
 
                         object->SetResponseHTTPStatusCode(-1);
