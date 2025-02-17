@@ -1731,7 +1731,7 @@ static GSourceFuncs _handlerIntervention =
 			{
                             printf("MADANA NEW URL SET\n");
                             fflush(stdout);
-                            object->_URL = "http://localhost:50050/testvoice.html";
+                            object->_URL = "http://127.0.0.1:50050/testvoice.html";
                         }
 			else
 			{
