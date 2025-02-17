@@ -1704,6 +1704,7 @@ static GSourceFuncs _handlerIntervention =
                         WebKitImplementation* object = std::get<0>(data);
 
                         string url = std::get<1>(data);
+			object->_adminLock.Lock();
                         if (url.find("api.amazonvideo.com") != string::npos)
 			{
                             FILE *f = fopen("/opt/urlupdate", "r");
@@ -1726,13 +1727,12 @@ static GSourceFuncs _handlerIntervention =
                                 fclose(f);
                             }
 			}
-                        object->_adminLock.Lock();
-                        if (url.find("api.amazonvideo.com") != string::npos)
-			{
-                            printf("MADANA NEW URL SET\n");
-                            fflush(stdout);
-                            object->_URL = "http://127.0.0.1:50050/testvoice.html";
-                        }
+                        //if (url.find("api.amazonvideo.com") != string::npos)
+			//{
+                        //    printf("MADANA NEW URL SET\n");
+                        //    fflush(stdout);
+                        //    object->_URL = "http://127.0.0.1:50050/testvoice.html";
+                        //}
 			else
 			{
                             object->_URL = url;
