@@ -1716,12 +1716,13 @@ static GSourceFuncs _handlerIntervention =
                                 {
                                     printf("MADANA NEW URL IS [%s] \n", newurl);
                                     fflush(stdout);
-                                    string url(newurl);
-                                    if (url.find('\n') != string::npos)
+                                    string urlstring(newurl);
+                                    if (urlstring.find('\n') != string::npos)
                                     {
-                                        url = url.substr(0, url.size()-1);
-                                        printf("MADANA NEW URL AFTER NEWLINE REMOVAL IS [%s] \n", url.c_str());
+                                        urlstring = urlstring.substr(0, url.size()-1);
+                                        printf("MADANA NEW URL AFTER NEWLINE REMOVAL IS [%s] \n", urlstring.c_str());
                                         fflush(stdout);
+					url = urlstring;
                                     }
                                 }
                                 fclose(f);
@@ -1733,6 +1734,8 @@ static GSourceFuncs _handlerIntervention =
                         //    fflush(stdout);
                         //    object->_URL = "http://127.0.0.1:50050/testvoice.html";
                         //}
+			printf("MADANA URL BEING SET FINAL IS [%s] \n", url.c_str());
+			fflush(stdout);
                         object->_URL = url;
                         object->_adminLock.Unlock();
 

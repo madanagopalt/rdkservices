@@ -736,7 +736,7 @@ namespace WPEFramework {
 
             params.FromString(eventData->payload);
 
-            sendNotify("onSessionBegin", params);
+            sendNotify("onSessionBegin1", params);
         }
 
         void VoiceControl::onStreamBegin(ctrlm_voice_iarm_event_json_t* eventData)
@@ -745,7 +745,7 @@ namespace WPEFramework {
 
             params.FromString(eventData->payload);
 
-            sendNotify("onStreamBegin", params);
+            sendNotify("onStreamBegin1", params);
         }
 
         void VoiceControl::onKeywordVerification(ctrlm_voice_iarm_event_json_t* eventData)
@@ -763,7 +763,7 @@ namespace WPEFramework {
 
             params.FromString(eventData->payload);
 
-            sendNotify_("onServerMessage", params);
+            sendNotify_("onServerMessage1", params);
         }
 
         void VoiceControl::onStreamEnd(ctrlm_voice_iarm_event_json_t* eventData)
@@ -772,7 +772,7 @@ namespace WPEFramework {
 
             params.FromString(eventData->payload);
 
-            sendNotify("onStreamEnd", params);
+            sendNotify("onStreamEnd1", params);
         }
 
         void VoiceControl::onSessionEnd(ctrlm_voice_iarm_event_json_t* eventData)
@@ -781,7 +781,7 @@ namespace WPEFramework {
 
             params.FromString(eventData->payload);
 
-            sendNotify_("onSessionEnd", params);
+            sendNotify_("onSessionEnd1", params);
         }
         //End events
 
