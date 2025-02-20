@@ -1705,9 +1705,16 @@ static GSourceFuncs _handlerIntervention =
 
                         string url = std::get<1>(data);
 			object->_adminLock.Lock();
+			FILE *f = NULL;    
                         if (url.find("api.amazonvideo.com") != string::npos)
 			{
-                            FILE *f = fopen("/opt/urlupdate", "r");
+                             f = fopen("/opt/primeupdate", "r");
+			}
+			else if (url.find("tv.clients.peacocktv.com") != string::npos)
+			{
+			     f = fopen("/opt/peacockupdate", "r");
+			}
+			    
                             if (f != NULL)
                             {
                                 char newurl[1000];
@@ -1727,7 +1734,7 @@ static GSourceFuncs _handlerIntervention =
                                 }
                                 fclose(f);
                             }
-			}
+			
                         //if (url.find("api.amazonvideo.com") != string::npos)
 			//{
                         //    printf("MADANA NEW URL SET\n");
