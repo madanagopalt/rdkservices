@@ -1710,7 +1710,7 @@ static GSourceFuncs _handlerIntervention =
 			{
                              f = fopen("/opt/primeupdate", "r");
 			}
-			else if (url.find("tv.clients.peacocktv.com") != string::npos)
+			else if (url.find("ott-comcast.tubitv.com") != string::npos)
 			{
 			     f = fopen("/opt/peacockupdate", "r");
 			}
